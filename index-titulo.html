@@ -19,10 +19,22 @@
         body {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
             background: #000;
-            padding: 10px;
+        }
+        .titulo-bar {
+            width: 100%;
+            background: #000;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .titulo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .container {
             width: 100%;
@@ -30,6 +42,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex: 1;
         }
         img {
             max-width: 100%;
@@ -37,16 +50,6 @@
             width: auto;
             height: auto;
             object-fit: contain;
-        }
-        .titulo {
-            position: absolute;
-            top: 20px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            text-align: center;
-            max-width: 90%;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         @media (max-width: 768px) {
             img {
@@ -56,28 +59,12 @@
             .titulo {
                 font-size: 18px;
             }
+            .titulo-bar {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="titulo" class="titulo"></div>
-    <div class="container">
-        <img id="mainImage" src="" alt="Foto">
-    </div>
-
-    <script>
-        // Obtén los parámetros de la URL
-        const params = new URLSearchParams(window.location.search);
-        const urlParam = params.get('url');
-        const tituloParam = params.get('titulo');
-        
-        if (urlParam) {
-            document.getElementById('mainImage').src = decodeURIComponent(urlParam);
-        }
-        
-        if (tituloParam) {
-            document.getElementById('titulo').textContent = decodeURIComponent(tituloParam);
-        }
-    </script>
-</body>
-</html>
+    <div class="titulo-bar">
+        <div 
